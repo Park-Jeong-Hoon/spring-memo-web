@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>이메일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${memberInfo.username}"></td>
+            <td th:text="${memberInfo.name}"></td>
+            <td th:text="${memberInfo.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/members/edit}">프로필 수정 -></a>
+    <a th:href="@{/members/password}">비밀번호 수정 -></a>
+    <a th:href="@{/}">홈으로</a>
+</div>
+</body>
+</html>

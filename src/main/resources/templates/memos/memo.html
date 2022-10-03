@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>메모번호</th>
+            <th th:text="${memoInfo.id}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>내용</td>
+            <td th:text="${memoInfo.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/memos/{id}/edit (id = ${memoInfo.id})}">수정 -></a>
+    <a th:href="@{/memos}">메모 목록 -></a>
+    <a th:href="@{/}">홈으로</a>
+</div>
+</body>
+</html>

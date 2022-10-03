@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="content" th:field="*{memoInfo.content}" />
+        <input type="submit" value="저장" />
+    </form>
+    <a th:href="@{/memos}">메모 목록 -></a>
+    <a th:href="@{/}">홈으로</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<body>
+<div>
+    <form method="post">
+        <input type="hidden" name="id">
+        <input type="text" name="content" placeholder="메모를 작성해주세요" />
+        <input type="submit" value="저장" />
+    </form>
+    <a th:href="@{/}">홈으로</a>
+</div>
+</body>
+</html>
