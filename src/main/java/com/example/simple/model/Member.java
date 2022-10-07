@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-public class Member {
+public class Member { // 회원
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

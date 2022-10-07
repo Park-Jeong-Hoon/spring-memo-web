@@ -36,25 +36,25 @@ public class MemoController {
         return "memos/memoList";
     }
 
-    @GetMapping("/memos/new")
+    @GetMapping(value = "/memos/new")
     public String getCreate() {
         return "memos/createMemo";
     }
 
-    @PostMapping("/memos/new")
+    @PostMapping(value = "/memos/new")
     public String postCreate(@AuthenticationPrincipal PrincipalDetails principalDetails, ContentDto contentDto) {
         memoService.add(principalDetails.getMember().getId(), contentDto);
         return "redirect:/memos";
     }
 
-    @GetMapping("/memos/{id}/edit")
+    @GetMapping(value = "/memos/{id}/edit")
     public String getEdit(@PathVariable("id") Long id, Model model) {
         MemoDto memoInfo = memoService.getMemoDtoById(id);
         model.addAttribute("memoInfo", memoInfo);
         return "memos/editMemo";
     }
 
-    @PostMapping("/memos/{id}/edit")
+    @PostMapping(value = "/memos/{id}/edit")
     public String postEdit(@PathVariable("id") Long id, ContentDto contentDto) {
         memoService.update(id, contentDto);
         return "redirect:/memos";

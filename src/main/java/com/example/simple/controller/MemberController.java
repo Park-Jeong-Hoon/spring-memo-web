@@ -25,12 +25,12 @@ public class MemberController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @GetMapping("/join")
+    @GetMapping(value = "/join")
     public String getJoin() {
         return "members/join";
     }
 
-    @PostMapping("/join")
+    @PostMapping(value = "/join")
     public String postJoin(JoinDto joinDto) {
         try {
             memberService.join(joinDto);
@@ -40,26 +40,26 @@ public class MemberController {
         return "redirect:/login";
     }
 
-    @GetMapping("/login")
+    @GetMapping(value = "/login")
     public String getLogin() {
         return "members/login";
     }
 
-    @GetMapping("/members/profile")
+    @GetMapping(value = "/members/profile")
     public String profile(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model) {
         MemberDto memberInfo = memberService.getMemberDtoById(principalDetails.getMember().getId());
         model.addAttribute("memberInfo", memberInfo);
         return "members/profile";
     }
 
-    @GetMapping("/members/edit")
+    @GetMapping(value = "/members/edit")
     public String getEdit(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model) {
         MemberDto memberInfo = memberService.getMemberDtoById(principalDetails.getMember().getId());
         model.addAttribute("memberInfo", memberInfo);
         return "members/editMember";
     }
 
-    @PostMapping("/members/edit")
+    @PostMapping(value = "/members/edit")
     public String postEdit(@AuthenticationPrincipal PrincipalDetails principalDetails, EditDto editDto) {
         principalDetails.getMember().setName(editDto.getName());
         principalDetails.getMember().setEmail(editDto.getEmail());
@@ -67,12 +67,12 @@ public class MemberController {
         return "redirect:/members/profile";
     }
 
-    @GetMapping("/members/password")
+    @GetMapping(value = "/members/password")
     public String getEditPassword() {
         return "members/editPassword";
     }
 
-    @PostMapping("/members/password")
+    @PostMapping(value = "/members/password")
     public String postEditPassword(@AuthenticationPrincipal PrincipalDetails principalDetails, PasswordDto passwordDto) {
         principalDetails.getMember().setPassword(bCryptPasswordEncoder.encode(passwordDto.getPassword()));
         memberService.updatePassword(principalDetails.getMember().getId(), passwordDto);

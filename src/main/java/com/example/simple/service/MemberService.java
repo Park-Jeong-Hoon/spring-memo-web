@@ -25,7 +25,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public Long join(JoinDto joinDto) {
+    public Long join(JoinDto joinDto) { // 회원가입
         List<Member> members = memberRepository.findAllByUsername(joinDto.getUsername());
 
         if (!members.isEmpty()) {
@@ -43,20 +43,20 @@ public class MemberService {
         return member.getId();
     }
 
-    public Long update(Long id, EditDto editDto) {
+    public Long update(Long id, EditDto editDto) { // 회원 정보 수정
         Member member = memberRepository.findById(id).get();
         member.setName(editDto.getName());
         member.setEmail(editDto.getEmail());
         return member.getId();
     }
 
-    public Long updatePassword(Long id, PasswordDto passwordDto) {
+    public Long updatePassword(Long id, PasswordDto passwordDto) { // 회원 비밀번호 변경
         Member member = memberRepository.findById(id).get();
         member.setPassword(bCryptPasswordEncoder.encode(passwordDto.getPassword()));
         return member.getId();
     }
 
-    public MemberDto getMemberDtoById(Long id) {
+    public MemberDto getMemberDtoById(Long id) { // 회원 정보
         return memberRepository.getMemberDtoById(id);
     }
 }

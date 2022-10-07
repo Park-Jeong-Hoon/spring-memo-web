@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Memo {
+public class Memo { // 메모
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
